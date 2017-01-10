@@ -5,29 +5,30 @@
     </head>
     
     <body>
-    	<!--
-    	<a-assets>
-  			<img id="texture" src="birds-in-love.jpg">
-		</a-assets>
-		-->
     	<a-scene>
+    		<a-assets>
+	  			<img id="boxTexture" src="birds-in-love.jpg">
+	  			<img id="planeTexture" src="metal.jpg">
+	  			<img id="skyTexture" src="view.jpg">
+			</a-assets>
+
 	    	<a-box width="1" 
 		         height="1"
 		         depth="1"
 		         color="green" 
-		         src="birds-in-love.jpg"
-		         position="0 0 -3"                   
+		         src="#boxTexture"
+		         position="0 1 -3"                   
 		         rotation="0 45 0">
 	  		</a-box>
   
 			<a-plane width="5"
 			       height="5" 
-			       color="#e1e1e1"
-			       src="metal.jpg"
-			       position="0 -1 -3" 
-			       rotation="-90 0 0">
+			       src="#planeTexture"
+			       position="0 0 -3" 
+			       rotation="-90 0 0"
+			       repeat="3 3">
 			</a-plane>
-			<a-sky src="view.jpg"></a-sky>
+			<a-sky src="#skyTexture"></a-sky>
         </a-scene>
     </body>
     
