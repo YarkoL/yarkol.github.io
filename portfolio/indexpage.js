@@ -85,8 +85,8 @@ function renderScreen() {
 		button.addChild(btnArea,label);
 		label.y = 35;
 		button.img = new createjs.Bitmap(images[i]);
-		//button.link = (labels[i] != "Contact") ? links[i] + "/index.html" : "contact.php";
-		button.link = (labels[i] != "Contact") ? links[i] : "contact.php";
+		button.link = (labels[i] != "Contact") ? links[i] + "/index.html" : "contact.php";
+		//button.link = (labels[i] != "Contact") ? links[i] : "contact.php";
 		button.x = buttonsX;
 		button.y = (labels[i] != "Contact") ? buttonsY + i*distance : 400;
 		button.onMouseOver = mouseOn;
