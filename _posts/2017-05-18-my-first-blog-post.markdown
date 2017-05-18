@@ -8,9 +8,9 @@ Hello, and welcome to my blog. I'm a mediocre schmuck developer just like you...
 
 Mostly I will be jotting down and taking notes of what kind of development-related stuff I've been doing, so if I have to do it again, I have a ready reference for it. Hopefully that will save someone else's time too. Ok, so how about if I start off with telling you how I set up this blog.
 
-I've had this github.io site for some time already, so I picture me looking for some lightweight, easy to maintain blogging system to run on it. Well, it looks like [Jekyll](https://jekyllrb.com/) is the thing. Check out [this excellent article](https://briancaffey.github.io/2016/03/17/jekyll-tutorial.html) first, otherwise what follows may be a little hard to understand.
+I've had this github.io site for some time already, so picture me looking for some lightweight, easy to maintain blogging system to run on it. Well, it looks like [Jekyll](https://jekyllrb.com/) is the thing. But it's a little confusing for an old fogey like me to get a grip on these things. This [article](https://briancaffey.github.io/2016/03/17/jekyll-tutorial.html) gave me a glimmer of understanding, but those instructions aren't up-to-date anymore! 
 
-To get Jekyll, I need to use _gem_, the Ruby package manager. I'm not familiar with ruby, and I don't have it on my Ubuntu 16.10 machine.
+Anyway, that first step. To get Jekyll, I need to use _gem_, the Ruby package manager. I'm not familiar with ruby, and I don't have it on my Ubuntu 16.10 machine.
 
 Of course my first impulse is to use _sudo apt-get install ruby_ and that seems to work just fine, but then, when I type
 
@@ -48,7 +48,13 @@ Flash my teeth in mirror.. and push the repo up to Github.
 
 Then it's just fun editing the markup files in the __posts_ folder. Also, the __config.yml_ needs to be edited for the basic features, and for learning Markdown (the markup language that Jekyll and Github use), here is a useful [cheat sheet](http://assemble.io/docs/Cheatsheet-Markdown.html).
 
-Coming up: Adding analytics...
+Ps. Adding Google analytics is so simple that figuring it out took me a long time. Just add this line to the __config.yml_
+
+``` html
+google_analytics: UA-XXXXX...
+```
+
+where UA-XXXXX... is your tracking id. When you push that to github, the analytic script will be added to all your posts!
 
 
 
