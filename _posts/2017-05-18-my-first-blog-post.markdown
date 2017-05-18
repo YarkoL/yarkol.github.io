@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "My first blog post."
+title:  "Setting up a Jekyll Blog"
 date:   2017-05-18 17:17:11 +0300
 categories: hello
 ---
@@ -47,6 +47,8 @@ Then I go to check it in browser, _http://localhost:4000_, and **hey presto!** h
 Flash my teeth in mirror.. and push the repo up to Github.
 
 Then it's just fun editing the markup files in the __posts_ folder. Also, the __config.yml_ needs to be edited for the basic features, and for learning Markdown (the markup language that Jekyll and Github use), here is a useful [cheat sheet](http://assemble.io/docs/Cheatsheet-Markdown.html).
+
+Coming up: Adding analytics...
 
 
 
