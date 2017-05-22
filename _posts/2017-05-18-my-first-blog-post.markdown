@@ -48,13 +48,23 @@ Flash my teeth in mirror.. and push the repo up to Github.
 
 Then it's just fun editing the markup files in the __posts_ folder. Also, the __config.yml_ needs to be edited for the basic features, and for learning Markdown (the markup language that Jekyll and Github use), here is a useful [cheat sheet](http://assemble.io/docs/Cheatsheet-Markdown.html).
 
-Ps. Adding Google analytics is so simple that figuring it out took me a long time. Just add this line to the __config.yml_
+Ok, now that I have my first post written, I'd like to add Google Analytics and ability for visitors to leave comments. This turned out to be so simple that it took me a long time to figure it out.
+
+Most of the tutorials I found on the net tell you that the files which dictate the behaviour of your site live in __includes_ and __layouts_ folders, so you need to modify those. The trouble is, my Jekyll site directory does not have those folders in it, and I could not understand what was going on!
+
+It turns out that the aforementioned files are "stored in the theme’s gem, hidden from your immediate view", to quote the official [Jekyll website](https://jekyllrb.com/docs/themes/). That is, when the Jekyll site is installed, it uses a default theme, called Minima, and those folders are inside that themes directory, which belongs to a Ruby gem... You can find them by issuing this command in your local site directory:
+
+``` html
+~/yarkol.github.io$ bundle show minima
+``` 
+Now, you can see that the theme's __includes_ folder has a file called _google-analytics.html_, and it contains the standard Google analytics snippet. Note that it has a _site.google-analytics_ variable in a curly brackets, so what you have to do is to assign your tracking id to it. Where do you do that? Why, in the __config.yml_! Just add this line 
 
 ``` html
 google_analytics: UA-XXXXX...
 ```
+where UA-XXXXX... is your tracking id. Now if you push that to github, the analytic script will be added to all your posts!
 
-where UA-XXXXX... is your tracking id. When you push that to github, the analytic script will be added to all your posts!
+There is also a ready-baked option to add Disqus commenting to your posts, but I was kind of turned off from that after coming across [this post](http://donw.io/post/github-comments/) which explains what kind of yucky overhead Disqus brings to your site. While I'm deciding whether to pursue the solution offered in that article, you can contact me, should the need arise, via my email, shown below.
 
 
 
