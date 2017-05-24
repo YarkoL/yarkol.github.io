@@ -12,34 +12,34 @@ What follows are the steps I took to get stuff up and working on Ubuntu 16.10.
 Let's get cmake
 
 ``` html
-$sudo apt-get install cmake
+$ sudo apt-get install cmake
 ```
 
 Then I made a new dir to fool around in
 
 ``` html
-$mkdir TestDrivenDev
+$ mkdir TestDrivenDev
 ```
 
 And clone the Google test repo there
 
 ``` html
-$git clone https://github.com/google/googletest.git
+$ git clone https://github.com/google/googletest.git
 ```
 
 Then I made a build sub-directory inside the google test dir
 
 ``` html
-$cd googletest/
-$mkdir mybuild
+$ cd googletest/
+$ mkdir mybuild
 ```
 The name of the directory can be anything, the book's examples use this name, so I can just copy the readymade scripts later without altering.
 
 I enter the build directory and run cmake from there.
 
 ``` html
-$cd mybuild/
-$cmake ..
+$ cd mybuild/
+$ cmake ..
 ```
 I now have a  makefile so all I need is to issue _make_ to build GTest and GMock.
 
