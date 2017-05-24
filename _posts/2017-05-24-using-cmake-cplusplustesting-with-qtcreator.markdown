@@ -58,7 +58,7 @@ $ which cmake
 
 Great, so what we have looks like this:
 
-![img](/img/ideView.png)
+![img](/img/buildAndRunWithCmake.png)
 
 We also need to add a kit in here. This is what mine looks like:
 
