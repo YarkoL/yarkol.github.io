@@ -33,7 +33,15 @@ $ make -f makefile.unix USE_UPNP=-
 ``` 
 The USE_UPNP=- is optional, it just disables peer discovery using universal plug'n'play, and we don't need that for now. 
 
-Okay, if the build was succesful, you ought to have _ppcoind_, the Peercoin daemon in the _src_ directory. Let's start that with
+Now, it may be that your compiling stopped abruptly, and you get a report like this:
+
+``` html
+makefile.unix:126: recipe for target 'obj/net.o' failed
+``` 
+No worries mate, just get [down here](#array_problem) with me for a sec and we'll sort that out in an iffy.
+
+<a name="back_to_business"></a> 
+Okay, here we are, back in the saddle  - if the build was succesful, you ought to have _ppcoind_, the Peercoin daemon in the _src_ directory. Let's start that with
 
 ``` html
 $ ./ppcoind -printtoconsole -debug
@@ -56,14 +64,39 @@ $ nano .ppcoin/ppcoin.conf
 and think of a password. Since we are testing, we can do with 
 
 ``` html
-rpcuser=rpc       
+rpcuser=rpc 
 rpcpassword=pwd 
 testnet=1
 ``` 
 
-Just remember, if you were running your client out there in the wild (i.e. without setting the testnet flag), you'd like to replace the password with something reasonable (like a random string), but for now, this will suffice.
+Just remember, if you were running a node out there in the wild (i.e. without setting the testnet flag), you'd like to replace the password with something reasonable (like a random string), but for now, this will suffice.
 
 Again run the node, and this time it should keep up humming nicely. Next time we'll have a closer look at what it is doing.
+
+***
+
+#### Here's what to do if your build stopped with "recipe for target 'obj/net.o' failed"
+
+<a name="array_problem"></a> 
+
+Okay, the thing is that Peercoin seems to have been gathering dust ever since the last commit which was more than a year ago. 
+
+There is this silly little bug, and someone has made a [pull request](https://github.com/peercoin/peercoin/pull/122) of it but no one has bothered to put that fix into the codebase. So we need to do it ourselves. 
+
+Take a look at the error report you got. Scroll a little upwards, and you should find this:
+
+``` html
+net.cpp:54:1: error: reference to ‘array’ is ambiguous
+ array<int, THREAD_MAX> vnThreadsRunning;
+ ^~~~~
+``` 
+
+There is this array, and now compiler is in trouble, because Boost and Standard libraries both have arrays in them, so which library to use? Well, this time a Boost array is needed. Let's make that clear by declaring the namespace explicitly. Open _net.cpp_ in an editor of your choice and go to line 54. Change it, so it reads 
+``` html
+boost::array<int, THREAD_MAX> vnThreadsRunning;
+``` 
+
+Save and compile again (make -f makefile etc.) Now that ought to work. Silly little bug. Let's [get back to business](#back_to_business)
 
 
 
