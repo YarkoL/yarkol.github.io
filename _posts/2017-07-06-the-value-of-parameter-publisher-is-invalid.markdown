@@ -16,7 +16,7 @@ azure vm extension set vmname VMAccessForLinux Microsoft.OSTCExtensions 1.*
  --private-config-path conf.json
 ``` 
 
-where vmname is the name of your virtual name. But no. You need to specify a resource group name. And if you use asterisk on the commandline, you'll get the weird error that is the title of this post. And the error messages that come are hard to decipher. 
+where vmname is the name of your virtual machine. But no. You need to specify a resource group name. And if you use asterisk on the commandline, you'll get the weird error that is the title of this post. And the error messages that come are hard to decipher. 
 
 Well, after lots of cursing and googling, what finally worked was this:
 
